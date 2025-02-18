@@ -26,7 +26,7 @@ export function Groups() {
           <EmptyList message="Que tal cadastrar a primeira turma?" />
         )}
       />
-      <Button title="Entrar" />
+      <Button title="Criar nova turma" />
     </Container>
   )
 }

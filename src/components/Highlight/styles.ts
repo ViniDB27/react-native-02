@@ -1,5 +1,6 @@
 import styled from 'styled-components/native'
 import { StyledProps } from '../../theme'
+import { css } from 'styled-components'
 
 export const Container = styled.View`
   width: 100%;
@@ -15,7 +16,10 @@ export const Title = styled.Text`
 
 export const Subtitle = styled.Text`
   text-align: center;
-  font-size: ${({ theme }: StyledProps) => theme.FONT_SIZE.MD}px;
-  font-family: ${({ theme }: StyledProps) => theme.FONT_FAMILY.REGULAR};
-  color: ${({ theme }: StyledProps) => theme.COLORS.GRAY_300};
+  
+  ${({ theme }: StyledProps) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+    color: ${theme.COLORS.GRAY_300};
+  `};
 `

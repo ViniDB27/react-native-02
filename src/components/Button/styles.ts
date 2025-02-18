@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { StyledProps } from '../../theme'
 import { TouchableOpacity } from 'react-native'
 
@@ -23,7 +23,9 @@ export const Container = styled(TouchableOpacity)<ButtonProps>`
   align-items: center;
 `
 export const Title = styled.Text`
-  font-size: ${({ theme }: StyledProps) => theme.FONT_SIZE.MD}px;
-  font-family: ${({ theme }: StyledProps) => theme.FONT_FAMILY.BOLD};
-  color: ${({ theme }: StyledProps) => theme.COLORS.WHITE};
+  ${({ theme }: StyledProps) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    color: ${theme.COLORS.WHITE};
+  `};
 `
