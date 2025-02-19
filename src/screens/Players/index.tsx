@@ -70,10 +70,7 @@ export function Players() {
           players.length === 0 && { flex: 1 },
         ]}
       />
-      <Button 
-        title='Remover Turma'
-        type='SECONDARY'
-      />
+      <Button title="Remover Turma" type="SECONDARY" />
     </Container>
   )
 }
