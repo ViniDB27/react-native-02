@@ -7,9 +7,15 @@ import { Highlight } from '../../components/Highlight'
 import { EmptyList } from '../../components/EmptyList'
 import { Button } from '../../components/Button'
 
+import { useNavigation } from '@react-navigation/native'
+
 export function Groups() {
+  const navigation = useNavigation()
   const [groups, setGoups] = useState([])
-  // ['Galera da Rocket', 'Natura&CO']
+
+  function handleNewGroup() {
+    navigation.navigate('new')
+  }
 
   return (
     <Container>
@@ -26,7 +32,7 @@ export function Groups() {
           <EmptyList message="Que tal cadastrar a primeira turma?" />
         )}
       />
-      <Button title="Criar nova turma" />
+      <Button title="Criar nova turma" onPress={handleNewGroup} />
     </Container>
   )
 }

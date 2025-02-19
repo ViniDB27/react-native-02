@@ -10,32 +10,37 @@ import { Container, Form, HeaderList, NumbersOfPlayers } from './styles'
 import { PlayerCard } from '../../components/PlayerCard'
 import { EmptyList } from '../../components/EmptyList'
 import { Button } from '../../components/Button'
+import { useRoute } from '@react-navigation/native'
+
+type RouteParams = {
+  group: string
+}
 
 export function Players() {
   const [team, setTeam] = useState('Time A')
-  const [players, setPlayers] = useState([
-    'Vinicio',
-    'Rodrigo',
-    'Diego',
-    'Ana',
-    'Biro',
-    'Mayk',
-    'Vitoria',
-    'Guto',
-    'Maria',
-    'Isis',
-    'Amanda',
-  ])
+  const [newPlayer, setNewPlayer] = useState('')
+  const [players, setPlayers] = useState<string[]>([])
+
+  const route = useRoute()
+  const { group } = route.params as RouteParams
+
+  function handleAddNewPlayer() {
+    setPlayers((state) => [...state, newPlayer])
+    setNewPlayer('')
+  }
+
   return (
     <Container>
       <Header showBackButton />
-      <Highlight
-        title="Nome da Turma"
-        subtitle="adcione a galera e separe os times"
-      />
+      <Highlight title={group} subtitle="adcione a galera e separe os times" />
       <Form>
-        <Input placeholder="Nome da Pessoa" autoCorrect={false} />
-        <ButtonIcon icon="add" />
+        <Input
+          placeholder="Nome da Pessoa"
+          value={newPlayer}
+          onChangeText={setNewPlayer}
+          autoCorrect={false}
+        />
+        <ButtonIcon icon="add" onPress={handleAddNewPlayer} />
       </Form>
       <HeaderList>
         <FlatList
