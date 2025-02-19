@@ -9,14 +9,15 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   text-align: center;
-  font-size: ${({ theme }: StyledProps) => theme.FONT_SIZE.XL}px;
-  font-family: ${({ theme }: StyledProps) => theme.FONT_FAMILY.BOLD};
-  color: ${({ theme }: StyledProps) => theme.COLORS.WHITE};
+  ${({ theme }: StyledProps) => css`
+    font-size: ${theme.FONT_SIZE.XL}px;
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    color: ${theme.COLORS.WHITE};
+  `};
 `
 
 export const Subtitle = styled.Text`
   text-align: center;
-  
   ${({ theme }: StyledProps) => css`
     font-size: ${theme.FONT_SIZE.MD}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};
