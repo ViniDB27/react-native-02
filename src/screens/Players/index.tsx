@@ -71,7 +71,7 @@ export function Players() {
         ]}
       />
       <Button 
-        title='Remover Tuema'
+        title='Remover Turma'
         type='SECONDARY'
       />
     </Container>
